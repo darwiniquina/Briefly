@@ -73,8 +73,7 @@ class BriefsTable
                         DownloadActions::make('md'),
                         DownloadActions::make('txt'),
                         DownloadActions::make('pdf'),
-                    ])
-                        ->dropdown(false),
+                    ])->dropdown(false),
                 ]),
 
             ])
