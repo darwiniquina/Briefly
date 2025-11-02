@@ -6,6 +6,7 @@ use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
+use Filament\Support\Icons\Heroicon;
 use Illuminate\Support\Str;
 
 class BriefInfolist
@@ -15,6 +16,7 @@ class BriefInfolist
         return $schema->components([
             Grid::make()->columnSpan(1)->columns(1)->schema([
                 Section::make('Brief Info')
+                    ->icon(Heroicon::DocumentText)
                     ->description('A concise summary of the brief, including title, type, status, and personal notes.')
                     ->schema([
                         TextEntry::make('title')
@@ -38,18 +40,20 @@ class BriefInfolist
 
             Grid::make()->columnSpan(2)->columns(1)->schema([
                 Section::make('Client Notes')
+                    ->icon(Heroicon::ClipboardDocumentList)
                     ->description('A concise summary of the brief, including title, type, status, and personal notes.')
                     ->schema([
                         TextEntry::make('raw_input')
-                            ->label('Client Notes'),
+                            ->hiddenLabel(),
 
                     ]),
 
                 Section::make('Generated Brief')
-                    ->description('The structured brief generated automatically, ready for review or sharing.')
+                    ->icon(Heroicon::OutlinedSparkles)
+                    ->description('The structuredbrief generated automatically, ready for review or sharing.')
                     ->schema([
                         TextEntry::make('structured_output')
-                            ->label('Generated Brief')
+                            ->hiddenLabel()
                             ->copyable()
                             ->markdown(),
                     ]),
