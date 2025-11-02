@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('raw_input');
             $table->enum('type', ['Branding', 'Marketing', 'Web App', 'General'])->default('General');
             $table->json('structured_output')->nullable();
+            $table->string('notes')->nullable();
             $table->enum('status', ['draft', 'processing', 'completed'])->default('draft');
             $table->timestamps();
         });
