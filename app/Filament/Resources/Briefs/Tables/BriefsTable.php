@@ -45,25 +45,27 @@ class BriefsTable
                 //
             ])
             ->recordActions([
-                Action::make('generate')
-                    ->label(fn ($record) => $record->status === 'completed' ? 'Regenerate with AI' : 'Generate with AI')
-                    ->icon('heroicon-o-sparkles')
-                    ->requiresConfirmation()
-                    ->action(function (Brief $record) {
-                        $rawInput = $record->raw_input;
-                        $type = $record->type;
+                // UX Wise I'll disable it for now
 
-                        if (blank($rawInput) || blank($type)) {
-                            return;
-                        }
+                // Action::make('generate')
+                //     ->label(fn ($record) => $record->status === 'completed' ? 'Regenerate with AI' : 'Generate with AI')
+                //     ->icon('heroicon-o-sparkles')
+                //     ->requiresConfirmation()
+                //     ->action(function (Brief $record) {
+                //         $rawInput = $record->raw_input;
+                //         $type = $record->type;
 
-                        $result = app(BriefGenerator::class)->generate($rawInput, $type);
+                //         if (blank($rawInput) || blank($type)) {
+                //             return;
+                //         }
 
-                        $record->update([
-                            'structured_output' => $result,
-                            'status' => 'completed',
-                        ]);
-                    }),
+                //         $result = app(BriefGenerator::class)->generate($rawInput, $type);
+
+                //         $record->update([
+                //             'structured_output' => $result,
+                //             'status' => 'completed',
+                //         ]);
+                //     }),
                 ActionGroup::make([
                     ActionGroup::make([
                         ViewAction::make(),
