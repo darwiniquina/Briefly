@@ -1,0 +1,19 @@
+<?php
+
+namespace App\Filament\Resources\Briefs\Pages;
+
+use App\Filament\Resources\Briefs\BriefResource;
+use Filament\Actions\CreateAction;
+use Filament\Resources\Pages\ListRecords;
+
+class ListBriefs extends ListRecords
+{
+    protected static string $resource = BriefResource::class;
+
+    protected function getHeaderActions(): array
+    {
+        return [
+            CreateAction::make(),
+        ];
+    }
+}
